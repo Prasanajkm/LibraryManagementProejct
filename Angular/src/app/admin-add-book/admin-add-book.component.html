@@ -1,0 +1,65 @@
+<div class="main-content">
+  <div class="container col-12 col-sm-6">
+    <div class="card-body">
+      <h3 class="card-title text-centre">AddBook</h3> 
+      <form [formGroup]="addBookForm" class="form">
+        <div class="ui-fluid p-formgrid p-grid">
+          <div class="p-field p-grid col-12">
+            <div class="col-sm-3 col-4">
+              <label for="bookName">Book Name</label><span class="red">*</span></div>
+            <div class="col-sm-9 col-8">
+              <input type="text" class="form-control" pInputText name="bookName" formControlName="bookName">
+              <div
+                *ngIf="(addBookForm.controls['bookName'].errors && (addBookForm.controls['bookName'].dirty || addBookForm.controls['bookName'].touched))"
+                class="red">
+               <div *ngIf="addBookForm.controls['bookName'].errors['required']">Book Nameis Required</div>
+              </div>  
+            </div>
+          </div>
+          <div class="p-field p-grid col-12">
+            <div class="col-sm-3 col-4">
+              <label for="authorName">Author Name </label><span class="red">*</span></div>
+            <div class="col-sm-9 col-8">
+              <input type="text" class="form-control" pInputText name="authorName" formControlName="authorName">
+              <div
+                *ngIf="(addBookForm.controls['authorName'].errors && (addBookForm.controls['authorName'].dirty || addBookForm.controls['authorName'].touched))"
+                class="red">
+               <div *ngIf="addBookForm.controls['authorName'].errors['required']">Author Name is Required</div>
+              </div>  
+            </div>
+          </div>
+          <div class="p-field p-grid col-12">
+            <div class="col-sm-3 col-4">
+              <label for="publicationName">Publication Name </label><span class="red">*</span></div>
+            <div class="col-sm-9 col-8">
+              <input type="text" class="form-control" pInputText name="publicationName" formControlName="publicationName">
+              <div
+                *ngIf="(addBookForm.controls['publicationName'].errors && (addBookForm.controls['publicationName'].dirty || addBookForm.controls['publicationName'].touched))"
+                class="red">
+               <div *ngIf="addBookForm.controls['publicationName'].errors['required']">Phone Number is Required</div>
+              </div>  
+            </div>
+          </div>
+          
+          <div class="p-field p-grid col-12">
+            <div class="col-sm-3 col-4">
+              <label for="rackNumber">Rack Number</label><span class="red">*</span></div>
+            <div class="col-sm-9 col-8">
+              <input type="text" class="form-control" pInputText name="rackNumber" formControlName="rackNumber">
+              <div
+                *ngIf="(addBookForm.controls['rackNumber'].errors && (addBookForm.controls['rackNumber'].dirty || addBookForm.controls['rackNumber'].touched))"
+                class="red">
+               <div *ngIf="addBookForm.controls['rackNumber'].errors['required']">Rack is Required</div>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <br/>
+        <button class="btn btn-primary" [disabled]="!addBookForm.valid" (click)="addBook()" label="Register">Button</button>
+      </form>
+      
+      <div class="text-success">{{successMessage}}</div>
+        <div class="text-danger">{{errorMessage}}</div>
+    </div>
+  </div>
+</div>
